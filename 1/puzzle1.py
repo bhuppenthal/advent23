@@ -1,7 +1,3 @@
-input = open('input.txt')
-lines = input.readlines()
-input.close()
-
 replace_dict = {'one': '1',
     'two': '2',
     'three': '3',
@@ -11,6 +7,7 @@ replace_dict = {'one': '1',
     'seven': '7',
     'eight': '8',
     'nine': '9'}
+
 
 def prefix(string):
     for key, value in replace_dict.items():
@@ -29,6 +26,10 @@ def suffix(string):
         return string[-1]
     return suffix(string[:-1])
 
+
+input = open('input.txt')
+lines = input.readlines()
+input.close()
 
 sum = 0
 for line in lines:
