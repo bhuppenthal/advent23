@@ -9,22 +9,22 @@ replace_dict = {'one': '1',
     'nine': '9'}
 
 
-def prefix(string):
+def first_num(string):
     for key, value in replace_dict.items():
         if string.startswith(key):
             return value
     if string[0].isnumeric():
         return string[0]
-    return prefix(string[1:])
+    return first_num(string[1:])
 
 
-def suffix(string):
+def last_num(string):
     for key, value in replace_dict.items():
         if string.endswith(key):
             return value
     if string[-1].isnumeric():
         return string[-1]
-    return suffix(string[:-1])
+    return last_num(string[:-1])
 
 
 input = open('input.txt')
@@ -33,7 +33,7 @@ input.close()
 
 sum = 0
 for line in lines:
-    number = prefix(line) + suffix(line)
+    number = first_num(line) + last_num(line)
     sum += int(number)
 
 print(sum)
